@@ -110,12 +110,13 @@ quiz_engine/
     └── test-classes
 
 ## Getting Started
-### 1. Prerequisites
+### Prerequisites
 
 Make sure you have:
 
 Java 17 or later
 Maven
+
 A terminal or command prompt
 
 Check Java:
@@ -182,37 +183,64 @@ The application expects questions in JSON format.
 Example:
 
 [
+
   {
+
     "question": "What does JVM stand for?",
+
+    
     "options": [
+    
       "Java Variable Machine",
+    
       "Java Virtual Machine",
+    
       "Java Visual Machine",
+    
       "Java Verified Machine"
+    
     ],
+    
     "correctAnswerIndex": 1,
+    
     "category": "Java"
+  
   },
+
   {
+  
     "question": "Which keyword is used to create a class in Java?",
+  
     "options": [
+  
       "class",
+  
       "struct",
+  
       "object",
+  
       "new"
+  
     ],
+  
     "correctAnswerIndex": 0,
+  
     "category": "Java"
+  
   }
+
 ]
 
 #### Question Requirements
 
-Every question must contain:
+##### Every question must contain:
 
 A question
+
 A category
+
 Exactly four options
+
 A valid correct answer index
 
 The correct answer index is zero-based.
@@ -220,8 +248,11 @@ The correct answer index is zero-based.
 For example:
 
 0 = first option
+
 1 = second option
+
 2 = third option
+
 3 = fourth option
 
 ### Quiz Flow
@@ -229,25 +260,45 @@ For example:
 The application follows a basic quiz flow:
 
 Start Application
+
        ↓
+
 Load Question Bank
+
        ↓
+
 Select Category
+
        ↓
+
 Randomise Questions
+
        ↓
+
 Start Timer
+
        ↓
+
 Answer Questions
+
        ↓
+
 Calculate Score
+
        ↓
+
 Display Results
+
        ↓
+
 Review Wrong Answers
+
        ↓
+
 Save Result
+
        ↓
+
 Update Leaderboard
 
 ### Timed Questions / Quiz
@@ -296,7 +347,9 @@ After completing a quiz, users can review incorrect answers.
 Each wrong answer stores:
 
 The original question
+
 The selected answer
+
 Whether the answer was correct
 
 This functionality is represented by:
@@ -310,17 +363,25 @@ The quiz engine maintains a local leaderboard.
 Leaderboard records contain:
 
 Player name
+
 Score
+
 Correct answers
+
 Wrong answers
+
 Unanswered questions
+
 Percentage
 
 Example CSV structure:
 
 player,score,correct,wrong,unanswered,percentage
+
 Nabila,80,8,1,1,80.00
+
 John,70,7,2,1,70.00
+
 Mary,60,6,3,1,60.00
 
 The leaderboard is stored locally rather than requiring an external database.
@@ -339,8 +400,6 @@ src/main/resources/questions.json
 
 Used for persistent leaderboard data.
 
-This keeps the project simple and suitable for a beginner/intermediate Java application without requiring a database.
-
 ### Main Components
 #### Main.java
 
@@ -358,7 +417,8 @@ question
 options
 correctAnswerIndex
 category
-QuizResult.java
+
+#### QuizResult.java
 
 Stores the result of a completed quiz.
 
@@ -501,28 +561,28 @@ Question 3 of 10
 
 This allows the user to know how much of the quiz they have completed.
 
-### Example Maven Commands
+### Maven Commands (Examples)
 
-Clean the project:
+#### Clean the project:
 
 mvn clean
 
-Compile:
+#### Compile:
 
 mvn compile
 
-Run tests:
+#### Run tests:
 
 mvn test
 
-Package the application:
+#### Package the application:
 
 mvn package
 
-Clean and build:
+#### Clean and build:
 
 mvn clean package
 
-Clean, test, and install:
+#### Clean, test, and install:
 
 mvn clean install

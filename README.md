@@ -227,10 +227,8 @@ Example:
 
 ]
 
-#### Question Requirements
-
-##### Every question must contain:
-
+### Question Requirements
+Every question must contain:
 - A question
 - A category
 - Exactly four options
@@ -239,7 +237,6 @@ Example:
 The correct answer index is zero-based.
 
 For example:
-
 - 0 = first option
 - 1 = second option
 - 2 = third option
@@ -316,11 +313,10 @@ Score = (Correct × Correct Points)
 The final score cannot fall below zero.
 
 For example:
-
-Correct answers = 8
-Wrong answers   = 2
-Correct points  = 10
-Wrong penalty   = 2
+- Correct answers = 8
+- Wrong answers   = 2
+- Correct points  = 10
+- Wrong penalty   = 2
 
 Calculation:
 
@@ -335,7 +331,6 @@ Calculation:
 After completing a quiz, users can review incorrect answers.
 
 Each wrong answer stores:
-
 - The original question
 - The selected answer
 - Whether the answer was correct
@@ -348,7 +343,6 @@ AnswerReview
 The quiz engine maintains a local leaderboard.
 
 Leaderboard records contain:
-
 - Player name
 - Score
 - Correct answers

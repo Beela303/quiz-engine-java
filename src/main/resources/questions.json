@@ -1,0 +1,112 @@
+[
+  {
+    "question": "Which keyword is used to create a class in Java?",
+    "category": "Java Basics",
+    "options": [
+      "class",
+      "struct",
+      "object",
+      "new"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which method is the entry point of a Java application?",
+    "category": "Java Basics",
+    "options": [
+      "start()",
+      "main()",
+      "run()",
+      "execute()"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which data type is used to store a whole number in Java?",
+    "category": "Java Basics",
+    "options": [
+      "double",
+      "String",
+      "int",
+      "boolean"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which keyword is used to inherit from a class in Java?",
+    "category": "OOP",
+    "options": [
+      "implements",
+      "extends",
+      "inherits",
+      "super"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What does OOP stand for?",
+    "category": "OOP",
+    "options": [
+      "Object-Oriented Programming",
+      "Object-Ordered Processing",
+      "Open Object Programming",
+      "Organized Object Processing"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which keyword refers to the current object?",
+    "category": "OOP",
+    "options": [
+      "self",
+      "this",
+      "current",
+      "object"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which collection does not allow duplicate elements?",
+    "category": "Collections",
+    "options": [
+      "List",
+      "ArrayList",
+      "Set",
+      "Queue"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which class is commonly used to store a dynamic list of objects?",
+    "category": "Collections",
+    "options": [
+      "ArrayList",
+      "HashMap",
+      "HashSet",
+      "TreeMap"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Which keyword is used to create an object in Java?",
+    "category": "Java Basics",
+    "options": [
+      "create",
+      "object",
+      "new",
+      "instance"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which access modifier makes a member accessible from anywhere?",
+    "category": "Java Basics",
+    "options": [
+      "private",
+      "protected",
+      "default",
+      "public"
+    ],
+    "correctAnswerIndex": 3
+  }
+]

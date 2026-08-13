@@ -183,11 +183,8 @@ The application expects questions in JSON format.
 Example:
 
 [
-
   {
-
     "question": "What does JVM stand for?",
-
     
     "options": [
     
@@ -198,17 +195,13 @@ Example:
       "Java Visual Machine",
     
       "Java Verified Machine"
-    
     ],
     
     "correctAnswerIndex": 1,
     
     "category": "Java"
-  
   },
-
   {
-  
     "question": "Which keyword is used to create a class in Java?",
   
     "options": [
@@ -220,15 +213,12 @@ Example:
       "object",
   
       "new"
-  
     ],
   
     "correctAnswerIndex": 0,
   
     "category": "Java"
-  
   }
-
 ]
 
 #### Question Requirements
@@ -260,43 +250,33 @@ For example:
 The application follows a basic quiz flow:
 
 Start Application
-
        ↓
 
 Load Question Bank
-
        ↓
 
 Select Category
-
        ↓
 
 Randomise Questions
-
        ↓
 
 Start Timer
-
        ↓
 
 Answer Questions
-
        ↓
 
 Calculate Score
-
        ↓
 
 Display Results
-
        ↓
 
 Review Wrong Answers
-
        ↓
 
 Save Result
-
        ↓
 
 Update Leaderboard
@@ -442,22 +422,35 @@ Responsible for loading and validating questions from JSON.
 It handles:
 
 Missing question bank
+
 Empty question bank
+
 Malformed JSON
+
 Missing question text
+
 Missing categories
+
 Incorrect number of options
+
 Invalid correct-answer indexes
-QuizService.java
+
+#### QuizService.java
 
 Handles quiz-related logic such as:
 
 Filtering questions by category
+
 Randomising questions
+
 Calculating quiz results
+
 Tracking correct answers
+
 Tracking wrong answers
+
 Tracking unanswered questions
+
 ScoreService.java
 
 Handles scoring rules.

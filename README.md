@@ -119,11 +119,11 @@ Maven
 
 A terminal or command prompt
 
-Check Java:
+- Check Java:
 
 java -version
 
-Check Maven:
+- Check Maven:
 
 mvn -version
 
@@ -151,14 +151,14 @@ The project uses JUnit 5 for automated testing.
 
 Current tests cover areas such as:
 
-Score calculation
-Negative marking
-Invalid score input
-Leaderboard functionality
-Question bank loading
-Malformed JSON handling
-Invalid question data
-Running the Application
+- Score calculation
+- Negative marking
+- Invalid score input
+- Leaderboard functionality
+- Question bank loading
+- Malformed JSON handling
+- Invalid question data
+- Running the Application
 
 First compile the project:
 
@@ -184,6 +184,7 @@ Example:
 
 [
   {
+
     "question": "What does JVM stand for?",
     
     "options": [
@@ -200,8 +201,11 @@ Example:
     "correctAnswerIndex": 1,
     
     "category": "Java"
+
   },
+
   {
+
     "question": "Which keyword is used to create a class in Java?",
   
     "options": [
@@ -218,65 +222,71 @@ Example:
     "correctAnswerIndex": 0,
   
     "category": "Java"
+
   }
+
 ]
 
 #### Question Requirements
 
 ##### Every question must contain:
 
-A question
-
-A category
-
-Exactly four options
-
-A valid correct answer index
+- A question
+- A category
+- Exactly four options
+- A valid correct answer index
 
 The correct answer index is zero-based.
 
 For example:
 
-0 = first option
-
-1 = second option
-
-2 = third option
-
-3 = fourth option
+- 0 = first option
+- 1 = second option
+- 2 = third option
+- 3 = fourth option
 
 ### Quiz Flow
 
 The application follows a basic quiz flow:
 
 Start Application
+
        ↓
 
 Load Question Bank
+
        ↓
 
 Select Category
+
        ↓
 
 Randomise Questions
+
        ↓
 
 Start Timer
+
        ↓
 
 Answer Questions
+
        ↓
 
 Calculate Score
+
        ↓
 
 Display Results
+
        ↓
 
 Review Wrong Answers
+
        ↓
 
 Save Result
+
        ↓
 
 Update Leaderboard
@@ -326,13 +336,10 @@ After completing a quiz, users can review incorrect answers.
 
 Each wrong answer stores:
 
-The original question
-
-The selected answer
-
-Whether the answer was correct
-
-This functionality is represented by:
+- The original question
+- The selected answer
+- Whether the answer was correct
+- This functionality is represented by:
 
 AnswerReview
 
@@ -342,17 +349,12 @@ The quiz engine maintains a local leaderboard.
 
 Leaderboard records contain:
 
-Player name
-
-Score
-
-Correct answers
-
-Wrong answers
-
-Unanswered questions
-
-Percentage
+- Player name
+- Score
+- Correct answers
+- Wrong answers
+- Unanswered questions
+- Percentage
 
 Example CSV structure:
 
@@ -380,79 +382,59 @@ src/main/resources/questions.json
 
 Used for persistent leaderboard data.
 
-### Main Components
-#### Main.java
+## Main Components
 
+### Main.java
 The main entry point of the application.
 
 It is responsible for starting the quiz application and coordinating the major application flow.
 
-#### Question.java
-
+### Question.java
 Represents an individual quiz question.
 
 A question contains:
+- question
+- options
+- correctAnswerIndex
+- category
 
-question
-options
-correctAnswerIndex
-category
-
-#### QuizResult.java
-
+### QuizResult.java
 Stores the result of a completed quiz.
 
 It contains:
-
-correct
-wrong
-unanswered
-score
-totalQuestions
-elapsedSeconds
-wrongAnswers
-AnswerReview.java
+- correct
+- wrong
+- unanswered
+- score
+- totalQuestions
+- elapsedSeconds
+- wrongAnswers
+- AnswerReview.java
 
 Represents a user's answer to a question and whether the answer was correct.
 
-#### QuestionBank.java
-
+### QuestionBank.java
 Responsible for loading and validating questions from JSON.
 
 It handles:
+- Missing question bank
+- Empty question bank
+- Malformed JSON
+- Missing question text
+- Missing categories
+- Incorrect number of options
+- Invalid correct-answer indexes
 
-Missing question bank
-
-Empty question bank
-
-Malformed JSON
-
-Missing question text
-
-Missing categories
-
-Incorrect number of options
-
-Invalid correct-answer indexes
-
-#### QuizService.java
-
+### QuizService.java
 Handles quiz-related logic such as:
+- Filtering questions by category
+- Randomising questions
+- Calculating quiz results
+- Tracking correct answers
+- Tracking wrong answers
+- Tracking unanswered questions
 
-Filtering questions by category
-
-Randomising questions
-
-Calculating quiz results
-
-Tracking correct answers
-
-Tracking wrong answers
-
-Tracking unanswered questions
-
-ScoreService.java
-
+### ScoreService.java
 Handles scoring rules.
 
 Example:
@@ -461,31 +443,27 @@ ScoreService scoreService =
         new ScoreService(10, 2);
 
 This means:
+- Correct answer = +10 points
+- Wrong answer   = -2 points
 
-Correct answer = +10 points
-Wrong answer   = -2 points
-LeaderboardService.java
-
+### LeaderboardService.java
 Handles leaderboard-related operations.
 
 It works with the leaderboard storage layer to:
+- Load leaderboard entries
+- Add new results
+- Sort rankings
+- Save rankings
 
-Load leaderboard entries
-Add new results
-Sort rankings
-Save rankings
-LeaderboardStorage.java
-
+### LeaderboardStorage.java
 Handles reading and writing leaderboard data to a local CSV file.
 
-#### TimedInput.java
-
+### TimedInput.java
 Provides timed console input.
 
 It uses Java's concurrency utilities to wait for user input for a specified amount of time.
 
 ### Testing
-
 The project uses JUnit 5.
 
 Tests are located inside:
@@ -493,45 +471,38 @@ Tests are located inside:
 src/test/java/com/quizengine/
 
 Current test classes include:
-
-ScoreServiceTest.java
-LeaderboardServiceTest.java
-QuestionBankTest.java
+- ScoreServiceTest.java
+- LeaderboardServiceTest.java
+- QuestionBankTest.java
 
 Run all tests with:
 
 mvn test
 
 ### Error Handling
-
 The application includes validation for common errors.
 
-Missing Question Bank
-
+- Missing Question Bank
 If the question file does not exist, the application reports an error instead of silently continuing.
 
-Empty Question Bank
-
+- Empty Question Bank
 An empty JSON file is rejected.
 
-Malformed JSON
-
+- Malformed JSON
 Invalid JSON produces a meaningful error.
 
-Invalid Questions
-
+- Invalid Questions
 Questions are rejected when:
 
-Question text is missing
-Category is missing
-There are not exactly four options
-Correct answer index is invalid
-Invalid Scoring Configuration
+- Question text is missing
+- Category is missing
+- There are not exactly four options
+- Correct answer index is invalid
+- Invalid Scoring Configuration
 
 The scoring service rejects negative scoring configuration values.
 
 ### Question Randomisation
-
 Questions are shuffled before the quiz begins.
 
 This prevents the quiz from always presenting questions in the same order.
@@ -539,15 +510,13 @@ This prevents the quiz from always presenting questions in the same order.
 Category filtering is also supported.
 
 For example:
-
-All
-Java
-Programming
-Web Development
-Databases
+- All
+- Java
+- Programming
+- Web Development
+- Databases
 
 ### Progress Feedback
-
 During a quiz, the application can provide feedback such as:
 
 Question 3 of 10
@@ -555,27 +524,20 @@ Question 3 of 10
 This allows the user to know how much of the quiz they have completed.
 
 ### Maven Commands (Examples)
-
-#### Clean the project:
-
+- Clean the project:
 mvn clean
 
-#### Compile:
-
+- Compile:
 mvn compile
 
-#### Run tests:
-
+- Run tests:
 mvn test
 
-#### Package the application:
-
+- Package the application:
 mvn package
 
-#### Clean and build:
-
+- Clean and build:
 mvn clean package
 
-#### Clean, test, and install:
-
+- Clean, test, and install:
 mvn clean install
